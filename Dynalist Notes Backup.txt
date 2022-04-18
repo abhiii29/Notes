@@ -74,3 +74,5 @@ nmap -vv -p "port" --script=all "target"
 To perform a tcpscan 
 nmap -vv -Pn -sS -T4 -p- -oN /root/tcpscan.txt "target address"
 
+xx
+
