@@ -1,0 +1,76 @@
+Command line refresher
+pwd
+man (manual) 
+locate 
+adduser
+sudo
+echo
+cat
+nano
+chmod (change mode)
+ls , ls -la
+
+to end an if statement we type if backwards i.e. fi
+
+
+Nessus Scanner
+Vulnerability scanner
+Credentials
+lucipuci
+kali
+
+
+Information Gathering
+whois "domain"
+theHarvester
+theHarvester -d "domain" -b "source"
+theHarvester -d "rippling.com" -b "google"
+performing a pingsweep on the network
+cat pingsweep.sh 
+
+#!/bin/bash
+
+if  "$1" == "" 
+then
+echo "Usage: ./pingsweep.sh [network]"
+echo "Example: ./pingsweep.sh 192.168.1"
+else
+for ip in $(seq 1 254); do
+ping -c 1 $1.$ip | grep "64 bytes" | cut -d " " -f 4 | sed 's/.$//' &
+done
+fi
+
+nmap pingsweep
+
+nmap -sn 192.168.0.1-254
+TCPScan
+sudo nmap -vv -Pn -A -sS -T4 -p- -oN /root/tcpscan.txt 192.168.0.1
+UDPScan
+sudo nmap -vv -Pn -A -sU -T4 --top-ports 200 -oN /root/tcpscan.txt 192.168.0.1
+Nmap scripts
+/usr/share/nmap/scripts
+Nmap exploit
+nmap -vv -p 137 --script=all 192.168.0.1
+
+
+Metaploit(exploit scanning and execution)
+Metasploit
+msfconsole
+search smb
+The Server Message Block (SMB) protocol is a network file sharing protocol that **allows applications on a computer to read and write to files and to request services from server programs in a computer network**. The SMB protocol can be used on top of its TCP/IP protocol or other network protocols
+service postgresql start
+to build cache data faster
+search "searc"
+show options
+set ports 1-65535
+set rhosts "target machine"
+set threads 8
+use auxiliary/scanner/portscan/tcp
+exploit
+
+Nmap
+To use all scripts 
+nmap -vv -p "port" --script=all "target"
+To perform a tcpscan 
+nmap -vv -Pn -sS -T4 -p- -oN /root/tcpscan.txt "target address"
+
